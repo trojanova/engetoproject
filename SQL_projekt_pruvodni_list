@@ -1,0 +1,45 @@
+# engetoproject
+SQL project
+
+/*Primarni tabulka*/
+Obsahuje primarni prehled pro CR - udaje o  dostupnosti potravin na zaklade prumernych prijmu za urcite casove obdobi.
+
+/*Tabulka dodatecnych informaci*/
+Obsahuje dodatecne informace pro dalsi evropske staty - HDP, GINI koeficient, populace.
+
+OTAZKA 1: Rostou v prubehu let mzdy ve vsech odvetvich, nebo v nekterych klesaji?
+Vysledna tabulka ukazuje prumernou mzdu v danem odvetvi a roce. Serazena je primarne dle odvetvi a sekundarne dle let.
+ODPOVED NA OTAZKU 1: Ne, ve vsech odvetvich doslo minimalne jednou k mezirocnimu poklesu prumerne mzdy, a to:
+Odvetvi A (Zemedelstvi, lesnictvi, rybarstvi) - mezi lety 2008-2009 a 2017-2018.
+Odvetvi B (Tezba a dobyvani) - mezi lety 2008-9 a 2012-13.
+Odvetvi C (Zpracovatelsky prumysl) - mezi lety 2008-2009 
+Odvetvi D (Vyroba a rozvod elektriny, plynu, tepla a klimatiz. vzchudu) - mezi lety 2012-13, 2014-2015, 2016-2017
+Odvetvi E (Zasobovani vodou) - mezi lety 2012-13
+Odvetvi F (Stavebnictvi) - mezi lety 2009-10, 2012-13, 2017-18
+Odvetvi G (Velkoobchod a maloobchod, opravy a udrzba motorovych vozidel) - mezi lety 2008-9, 2012-13
+Odvetvi H (Doprava a skladovani) - mezi lety 2012-13
+Odvetvi I (Ubytovani, stravovnictvi a pohostinstvi) - mezi lety 2008-9, 2010-11
+Odvetvi J (Informacni a komunikacni cinnosti) - mezi lety 2009-10
+Odvetvi K (Peneznictvi a pojistovnictvi) - mezi lety 2008-09, 2009-10, 2012-13, 2014-15, 2016-17
+Odvetvi L (Cinnosti v oblasti nemovitosti) - mezi lety 2008-09, 2012-13, 2017-18
+Odvetvi M (Profesni, vedecke a technicke cinnosti) - mezi lety 2009-10, 2012-13, 2017-18
+Odvetvi N (Administrativni a podpurne cinnosti) - mezi lety 2012-13, 2014-15
+Odvetvi O (Verejna sprava a obrana, povinne socialni zabezpeceni) - mezi lety 2010-11, 2012-13
+Odvetvi P (Vzdelavani) - mezi lety 2012-13
+Odvetvi Q (Zdravotni a socialni pece) - mezi lety 2012-13
+Odvetvi R (Kulturni, zabavni a rekreacni cinnost) - mezi lety 2010-11
+Odvetvi S (Ostatni cinnosti) - mezi lety 2008-09, 2012-13
+
+OTAZKA 2: Kolik je mozne si koupit litru mleka a kilogramu chleba za prvni a posledni srovnatelne obdobi v dostupnych datech cen a mezd?
+ODPOVED NA OTAZKU 2: 
+
+OTAZKA 3: Ktera kategorie potravin zdrazuje nejpomaleji (je u ni nejnizsi percentualni mezirocni narust)? 
+ODPOVED NA OTAZKU 3:
+
+OTAZKA 4: Existuje rok, ve kterem byl mezirocni narust potravin vyrazne vyssi nez rust mezd (vetsi nez 10 %)?
+ODPOVED NA OTAZKU 4: 
+
+OTAZKA 5: Ma vyska HDP vliv na zmeny ve mzdach a cenach potravin? Neboli, pokud HDP vzroste vyrazneji v jednom roce, 
+projevi se to na cenach potravin ci mzdach ve stejnem nebo nasdujicim roce vyraznejsim rustem?
+ODPOVED NA OTAZKU 5: 
+POSTUP: Pomoci prvniho prikazu jsme zjistili, ze nejvyrazneji vzrostl HDP v letech 2007 (5.57%), 2015 (5.39%) a 2017 (5.17%). 

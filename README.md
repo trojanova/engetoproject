@@ -1,2 +1,0 @@
-# engetoproject
-SQL project
