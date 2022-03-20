@@ -1,4 +1,4 @@
-/*Primární tabulka*/
+/*Primarni tabulka*/
 CREATE TABLE t_tereza_trojanova_project_sql_primary_test (
 	SELECT
 		cp.value AS 'payroll_value',
@@ -21,7 +21,7 @@ CREATE TABLE t_tereza_trojanova_project_sql_primary_test (
 );
 
 
-/*Tabulka dodateèných informací*/
+/*Tabulka dodatecnych informaci*/
 
 CREATE TABLE t_tereza_trojanova_project_sql_secondary_final (
 	SELECT
@@ -65,7 +65,7 @@ CREATE TABLE t_tereza_trojanova_project_sql_secondary_final (
 );
 
 
-/*Rostou v prùbìhu let mzdy ve všech odvìtvích, nebo v nìkterých klesají?*/
+/*OTAZKA 1: Rostou v prubehu let mzdy ve vsech odvetvich, nebo v nekterych klesaji?*/
 
 SELECT 
 	payroll_value,
@@ -79,30 +79,64 @@ ORDER BY industry_branch_code, payroll_year
 ;
 
 
+/*OTAZKA 2: Kolik je moÅ¾nÃ© si koupit litrÅ¯ mlÃ©ka a kilogramÅ¯ chleba za prvnÃ­ a poslednÃ­ srovnatelnÃ© obdobÃ­ 
+ * v dostupnÃ½ch datech cen a mezd?*/
 
-/*Kolik je možné si koupit litrù mléka a kilogramù chleba za první a poslední srovnatelné období 
- * v dostupných datech cen a mezd?*/
-
-SELECT *
+SELECT
+	payroll_value, 
+	value_type_code,
+	payroll_year,
+	unit_name,
+	price_value,
+	category_name 
 FROM t_tereza_trojanova_project_sql_primary_final tttpspf
-WHERE category_code IN (114201, 111301)
-ORDER BY category_code DESC
+WHERE category_code IN (114201, 111301) AND value_type_code IN (5958)
+GROUP BY payroll_year 
+ORDER BY payroll_year, category_code 
 ;
 
 
+/*OTAZKA 3: Ktera kategorie potravin zdrazuje nejpomaleji 
+ * (je u ni nejnizsi percentualni mezirocni narust)? 
+*/
 
+SELECT
+	category_code,
+	category_name,
+	price_value,
+	price_year
+	
 
+/*
+OTAZKA 4: Existuje rok, ve kterem byl mezirocni narust cen potravin 
+vyrazne vyssi nez rust mezd (vetsi nez 10 %)?*/
+	
+SELECT 
+	payroll_year AS "rok", 
+	price_value AS "prumerna mzda",
+	payroll_value AS "prumerna cena potravin"
+FROM t_tereza_trojanova_project_sql_primary_final tttpspf
+GROUP BY payroll_year 
+ORDER BY payroll_year 
+; 
+	
+	
+	
 
+/*OTAZKA 5: Ma vyska HDP vliv na zmeny ve mzdach a cenach potravin? Neboli, pokud HDP vzroste vyrazneji v jednom roce, 
+projevi se to na cenach potravin ci mzdach ve stejnem nebo nasdujicim roce vyraznejsim rustem?*/
 
-
-
-
-
-
-
-
-
-
-
-
+SELECT 
+	x.*,
+	ROUND((GDP - previous_year_GDP)/previous_year_GDP*100, 2) AS 'growth_rate'  
+FROM 
+(SELECT 
+	`year`, 
+	GDP,
+	LAG(GDP,1) OVER ( 
+		ORDER BY `year`) AS 'previous_year_GDP'	 
+FROM t_tereza_trojanova_project_sql_secondary_final tttpssf
+WHERE abbreviation = 'CZ' AND year >= 2006
+ORDER BY `year`) x 
+;
 
