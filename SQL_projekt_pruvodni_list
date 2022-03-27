@@ -8,8 +8,8 @@ Obsahuje primarni prehled pro CR - udaje o  dostupnosti potravin na zaklade prum
 Obsahuje dodatecne informace pro dalsi evropske staty - HDP, GINI koeficient, populace.
 
 OTAZKA 1: Rostou v prubehu let mzdy ve vsech odvetvich, nebo v nekterych klesaji?
-Vysledna tabulka ukazuje prumernou mzdu v danem odvetvi a roce. Serazena je primarne dle odvetvi a sekundarne dle let.
-ODPOVED NA OTAZKU 1: Ne, ve vsech odvetvich doslo minimalne jednou k mezirocnimu poklesu prumerne mzdy, a to:
+VYSLEDEK: Ne, ve vsech odvetvich doslo minimalne jednou k mezirocnimu poklesu prumerne mzdy, a to.
+Vysledna tabulka ukazuje prumernou mzdu v danem odvetvi a roce. Serazena je primarne dle odvetvi a sekundarne podle let.
 Odvetvi A (Zemedelstvi, lesnictvi, rybarstvi) - mezi lety 2008-2009 a 2017-2018.
 Odvetvi B (Tezba a dobyvani) - mezi lety 2008-9 a 2012-13.
 Odvetvi C (Zpracovatelsky prumysl) - mezi lety 2008-2009 
@@ -31,15 +31,16 @@ Odvetvi R (Kulturni, zabavni a rekreacni cinnost) - mezi lety 2010-11
 Odvetvi S (Ostatni cinnosti) - mezi lety 2008-09, 2012-13
 
 OTAZKA 2: Kolik je mozne si koupit litru mleka a kilogramu chleba za prvni a posledni srovnatelne obdobi v dostupnych datech cen a mezd?
-ODPOVED NA OTAZKU 2: 
+VYSLEDEK: 
 
 OTAZKA 3: Ktera kategorie potravin zdrazuje nejpomaleji (je u ni nejnizsi percentualni mezirocni narust)? 
-ODPOVED NA OTAZKU 3:
+VYSLEDEK: 
 
 OTAZKA 4: Existuje rok, ve kterem byl mezirocni narust potravin vyrazne vyssi nez rust mezd (vetsi nez 10 %)?
-ODPOVED NA OTAZKU 4: 
+VYSLEDEK: 
 
 OTAZKA 5: Ma vyska HDP vliv na zmeny ve mzdach a cenach potravin? Neboli, pokud HDP vzroste vyrazneji v jednom roce, 
 projevi se to na cenach potravin ci mzdach ve stejnem nebo nasdujicim roce vyraznejsim rustem?
-ODPOVED NA OTAZKU 5: 
-POSTUP: Pomoci prvniho prikazu jsme zjistili, ze nejvyrazneji vzrostl HDP v letech 2007 (5.57%), 2015 (5.39%) a 2017 (5.17%). 
+VYSLEDEK: Pausalne to nelze tvrdit. Nejvyssi mezirocni narust HDP pozorujeme v letech 2007 (5.57%), 2015(5.39%) a 2017(5.17%), 
+z tohho vyrazny narust prumernych cen pozorujeme pouze v roce 2008. Mzdy vyrazneji vzrostly v letech 2008 a 2017. 
+Pomoci prvniho prikazu a) vypiseme mezirocni narust HDP. Pomoci druheho prikazu b) vypiseme prumerne mzdy v jednotlivych letech.
