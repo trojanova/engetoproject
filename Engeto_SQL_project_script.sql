@@ -102,6 +102,36 @@ ORDER BY category_code, payroll_year
  * (je u ni nejnizsi percentualni mezirocni narust)? 
 */
 
+CREATE TABLE t_ukol_3 AS SELECT
+	category_name,
+	payroll_year as 'year', 
+	price_value
+FROM t_tereza_trojanova_project_sql_primary_final tttpspf
+GROUP BY category_code, payroll_year  
+ORDER BY category_code, payroll_year
+;
+
+SELECT z.* 
+FROM (
+	SELECT 
+		y.*,
+		AVG (price_growth) OVER (PARTITION BY category_name) AS avg_price_growth
+	FROM (
+		SELECT 
+			x.*,
+			ROUND ((price_value-previous_year_price)/price_value*100,2) AS price_growth
+		FROM (
+			SELECT 
+				*,
+				LAG(price_value, 1) OVER (
+					ORDER BY category_name, year) AS previous_year_price
+			FROM t_ukol_3) x
+			WHERE year != 2006) y
+	GROUP BY category_name
+	ORDER BY avg_price_growth) z
+WHERE avg_price_growth>0
+; 
+
 
 
 
@@ -158,4 +188,3 @@ WHERE value_type_code in (5958)
 GROUP BY payroll_year 
 ORDER BY payroll_year ASC
 ; 
-
