@@ -82,17 +82,19 @@ ORDER BY industry_branch_code, payroll_year
 /*OTAZKA 2: Kolik je možné si koupit litrů mléka a kilogramů chleba za první a poslední srovnatelné období 
  * v dostupných datech cen a mezd?*/
 
+
 SELECT
-	payroll_value, 
-	value_type_code,
-	payroll_year,
-	unit_name,
-	price_value,
+	payroll_year AS 'year',
+	payroll_value AS 'avg_salary', 
+	price_value AS 'avg_selling price',
+	round (payroll_value/price_value,2) AS 'max_amount',
 	category_name 
 FROM t_tereza_trojanova_project_sql_primary_final tttpspf
-WHERE category_code IN (114201, 111301) AND value_type_code IN (5958)
-GROUP BY payroll_year 
-ORDER BY payroll_year, category_code 
+WHERE category_code IN (114201, 111301) 
+	AND value_type_code IN (5958) 
+	AND payroll_year IN (2006,2018)
+GROUP BY category_code, payroll_year  
+ORDER BY category_code, payroll_year
 ;
 
 
@@ -100,31 +102,34 @@ ORDER BY payroll_year, category_code
  * (je u ni nejnizsi percentualni mezirocni narust)? 
 */
 
-SELECT
-	category_code,
-	category_name,
-	price_value,
-	price_year
-	
+
+
 
 /*
 OTAZKA 4: Existuje rok, ve kterem byl mezirocni narust cen potravin 
 vyrazne vyssi nez rust mezd (vetsi nez 10 %)?*/
-	
+
 SELECT 
-	payroll_year AS "rok", 
-	price_value AS "prumerna mzda",
-	payroll_value AS "prumerna cena potravin"
-FROM t_tereza_trojanova_project_sql_primary_final tttpspf
-GROUP BY payroll_year 
-ORDER BY payroll_year 
+	x.*,
+	ROUND ((average_selling_price-previous_year_avg_selling_price)/average_selling_price*100, 2) AS 'price_growth'
+FROM (
+	SELECT 
+		payroll_year AS 'year', 
+		price_value AS 'average_selling_price',
+		LAG(price_value,1) OVER (
+			ORDER BY payroll_year) AS 'previous_year_avg_selling_price' 
+	FROM t_tereza_trojanova_project_sql_primary_final tttpspf
+	GROUP BY payroll_year 
+	ORDER BY payroll_year) x
 ; 
 	
 	
 	
 
 /*OTAZKA 5: Ma vyska HDP vliv na zmeny ve mzdach a cenach potravin? Neboli, pokud HDP vzroste vyrazneji v jednom roce, 
-projevi se to na cenach potravin ci mzdach ve stejnem nebo nasdujicim roce vyraznejsim rustem?*/
+projevi se to na cenach potravin ci mzdach ve stejnem nebo nasledujicim roce vyraznejsim rustem?*/
+
+/*a) Mezirocni narust HDP serazeny od nejvetsiho po nejmensi*/
 
 SELECT 
 	x.*,
@@ -138,5 +143,19 @@ FROM
 FROM t_tereza_trojanova_project_sql_secondary_final tttpssf
 WHERE abbreviation = 'CZ' AND year >= 2006
 ORDER BY `year`) x 
+ORDER BY growth_rate DESC
 ;
+
+
+/*b) Průměrné mzdy a ceny potravin v jednotlivých letech*/
+
+SELECT 
+	payroll_year as "year", 
+	price_value as "average_selling_price",
+	payroll_value as "average_salary" 
+FROM t_tereza_trojanova_project_sql_primary_final tttpspf
+WHERE value_type_code in (5958) 
+GROUP BY payroll_year 
+ORDER BY payroll_year ASC
+; 
 
