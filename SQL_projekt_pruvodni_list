@@ -35,7 +35,12 @@ VYSLEDEK: V prvnim srovnatelnem obdobi (2006) je mozne koupit za prumernou mzdu 
 Za posledni srovnatelne obdobi (2018) 893 kg chleba a 1090 l mleka.
 
 OTAZKA 3: Ktera kategorie potravin zdrazuje nejpomaleji (je u ni nejnizsi percentualni mezirocni narust)? 
-VYSLEDEK: 
+VYSLEDEK: V dostupnych obdobich zdrazuje nejpomaleji: pivo vycepni, svetle, lahvove (2.29%), sunkovy salam (3.27%), jogurt bily netucny (6.22%). 
+POSTUP: Vytvorila jsem si pomocnou tabulku, pomocny sloupec s prumernou cenou z predchoziho roku, 
+dale sloupec s prumernym rustem cen v danych kategoriich (rok 2006 jsem vyclenila, protoze pro nej nemame udaje). Nasledne jsem spocitala prumerny rust cen 
+v kazde kategorii, vyclenila kategorie, u kterych cena klesala (prumerny rust < 0) a vysledky jsem seradila dle prumerneho rustu vzestupne.   
+V zadani nebylo specifikovano, ktere roky mame srovnavat, proto jsem vypocitala prumerny rust v kategorii napric lety. Pokud by nas zajimaly konkretni roky, 
+muzeme pouzit pouze cast dotazu.
 
 OTAZKA 4: Existuje rok, ve kterem byl mezirocni narust potravin vyrazne vyssi nez rust mezd (vetsi nez 10 %)?
 VYSLEDEK: Ano, , z dostpnych to jsou roky 2008 (40%!) a 2007 (12%).  
