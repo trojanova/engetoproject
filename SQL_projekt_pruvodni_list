@@ -8,27 +8,8 @@ Obsahuje primarni prehled pro CR - udaje o  dostupnosti potravin na zaklade prum
 Obsahuje dodatecne informace pro dalsi evropske staty - HDP, GINI koeficient, populace.
 
 OTAZKA 1: Rostou v prubehu let mzdy ve vsech odvetvich, nebo v nekterych klesaji?
-VYSLEDEK: Ne, ve vsech odvetvich doslo minimalne jednou k mezirocnimu poklesu prumerne mzdy, a to.
-Vysledna tabulka ukazuje prumernou mzdu v danem odvetvi a roce. Serazena je primarne dle odvetvi a sekundarne podle let.
-Odvetvi A (Zemedelstvi, lesnictvi, rybarstvi) - mezi lety 2008-2009 a 2017-2018.
-Odvetvi B (Tezba a dobyvani) - mezi lety 2008-9 a 2012-13.
-Odvetvi C (Zpracovatelsky prumysl) - mezi lety 2008-2009 
-Odvetvi D (Vyroba a rozvod elektriny, plynu, tepla a klimatiz. vzchudu) - mezi lety 2012-13, 2014-2015, 2016-2017
-Odvetvi E (Zasobovani vodou) - mezi lety 2012-13
-Odvetvi F (Stavebnictvi) - mezi lety 2009-10, 2012-13, 2017-18
-Odvetvi G (Velkoobchod a maloobchod, opravy a udrzba motorovych vozidel) - mezi lety 2008-9, 2012-13
-Odvetvi H (Doprava a skladovani) - mezi lety 2012-13
-Odvetvi I (Ubytovani, stravovnictvi a pohostinstvi) - mezi lety 2008-9, 2010-11
-Odvetvi J (Informacni a komunikacni cinnosti) - mezi lety 2009-10
-Odvetvi K (Peneznictvi a pojistovnictvi) - mezi lety 2008-09, 2009-10, 2012-13, 2014-15, 2016-17
-Odvetvi L (Cinnosti v oblasti nemovitosti) - mezi lety 2008-09, 2012-13, 2017-18
-Odvetvi M (Profesni, vedecke a technicke cinnosti) - mezi lety 2009-10, 2012-13, 2017-18
-Odvetvi N (Administrativni a podpurne cinnosti) - mezi lety 2012-13, 2014-15
-Odvetvi O (Verejna sprava a obrana, povinne socialni zabezpeceni) - mezi lety 2010-11, 2012-13
-Odvetvi P (Vzdelavani) - mezi lety 2012-13
-Odvetvi Q (Zdravotni a socialni pece) - mezi lety 2012-13
-Odvetvi R (Kulturni, zabavni a rekreacni cinnost) - mezi lety 2010-11
-Odvetvi S (Ostatni cinnosti) - mezi lety 2008-09, 2012-13
+VYSLEDEK: Ne, ve vsech odvetvich doslo minimalne jednou k mezirocnimu poklesu prumerne mzdy.
+Vysledna tabulka ukazuje vsechny roky, ve kterych v danych odvetvich mzdy klesly. Posledni sloupec "salary_growth" znazornuje miru rustu v procentech.
 
 OTAZKA 2: Kolik je mozne si koupit litru mleka a kilogramu chleba za prvni a posledni srovnatelne obdobi v dostupnych datech cen a mezd?
 VYSLEDEK: V prvnim srovnatelnem obdobi (2006) je mozne koupit za prumernou mzdu 740 kg chleba a 858 l mleka. 
