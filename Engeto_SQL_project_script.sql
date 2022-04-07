@@ -38,15 +38,27 @@ CREATE TABLE t_tereza_trojanova_project_sql_secondary_final (
 
 /*OTAZKA 1: Rostou v prubehu let mzdy ve vsech odvetvich, nebo v nekterych klesaji?*/
 
-SELECT 
-	payroll_value,
-	industry_branch_code,
-	industry_name,
-	payroll_year
-FROM t_tereza_trojanova_project_sql_primary_final tttpspf
-WHERE value_type_code = '5958'
-GROUP BY industry_branch_code, payroll_year 
-ORDER BY industry_branch_code, payroll_year  
+SELECT * FROM (
+	SELECT 
+		y.*, 
+		ROUND ((salary - previous_year_salary)/salary*100,2) AS salary_growth
+	FROM ( 
+		SELECT 
+			x.*,
+			LAG(salary,1) OVER ( 
+				ORDER BY industry_branch_code, year) AS previous_year_salary
+		FROM ( 
+			SELECT 
+				payroll_year AS 'year',
+				industry_branch_code,
+				industry_name,
+				payroll_value AS salary
+			FROM t_tereza_trojanova_project_sql_primary_final tttpspf
+			WHERE value_type_code = '5958'
+			GROUP BY industry_branch_code, payroll_year 
+			ORDER BY industry_branch_code, payroll_year) x) y) z
+WHERE year != 2006
+	AND salary_growth < 0
 ;
 
 
