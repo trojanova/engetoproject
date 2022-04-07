@@ -86,13 +86,19 @@ ORDER BY category_code, payroll_year
 */
 
 CREATE TABLE t_ukol_3 AS SELECT
-	category_name,
-	payroll_year as 'year', 
-	price_value
-FROM t_tereza_trojanova_project_sql_primary_final tttpspf
+	tt.category_name,
+	tt.category_code, 
+	tt.payroll_year AS 'year', 
+	tt.price_value AS ppu, 			#ppu = price per unit
+	cpc.price_value AS amount,
+	cpc.price_unit AS unit
+FROM t_tereza_trojanova_project_sql_primary_final tt
+JOIN czechia_price_category cpc 
+	ON cpc.code = tt.category_code 
 GROUP BY category_code, payroll_year  
 ORDER BY category_code, payroll_year
 ;
+
 
 SELECT z.* 
 FROM (
@@ -102,18 +108,23 @@ FROM (
 	FROM (
 		SELECT 
 			x.*,
-			ROUND ((price_value-previous_year_price)/price_value*100,2) AS price_growth
+			ROUND ((ppu-previous_year_ppu)/ppu*100,2) AS price_growth
 		FROM (
 			SELECT 
-				*,
-				LAG(price_value, 1) OVER (
-					ORDER BY category_name, year) AS previous_year_price
+				category_name,
+				year,
+				amount,
+				unit,
+				ppu, 
+				LAG(ppu, 1) OVER (
+					ORDER BY category_name, year) AS previous_year_ppu  
 			FROM t_ukol_3) x
 			WHERE year != 2006) y
 	GROUP BY category_name
 	ORDER BY avg_price_growth) z
 WHERE avg_price_growth>0
 ; 
+
 
 
 
