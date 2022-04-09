@@ -67,17 +67,21 @@ WHERE year != 2006
 
 
 SELECT
-	payroll_year AS 'year',
-	payroll_value AS 'avg_salary', 
-	price_value AS 'avg_selling price',
-	round (payroll_value/price_value,2) AS 'max_amount',
-	category_name 
-FROM t_tereza_trojanova_project_sql_primary_final tttpspf
-WHERE category_code IN (114201, 111301) 
-	AND value_type_code IN (5958) 
-	AND payroll_year IN (2006,2018)
-GROUP BY category_code, payroll_year  
-ORDER BY category_code, payroll_year
+	x.*,
+	(avg_salary*12/avg_price) AS yearly_amount #vysledek, mnozstvi v kg/l za rok
+FROM(
+	SELECT
+		payroll_year AS 'year', 
+		AVG(payroll_value) AS avg_salary,
+		category_name, 
+		AVG(price_value) AS avg_price
+	FROM t_tereza_trojanova_project_sql_primary_final tttpspf
+	WHERE value_type_code = 5958	#prumerna hruba mzda
+		AND payroll_value IS NOT NULL 
+		AND category_code IN (114201, 111301) #mleko a chleb
+		AND payroll_year IN (2006, 2018) #prvni a posledni srovnatelne obdobi
+	GROUP BY payroll_year, category_code
+	ORDER BY payroll_year, category_code) x
 ;
 
 
