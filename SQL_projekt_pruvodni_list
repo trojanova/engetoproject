@@ -12,8 +12,8 @@ VYSLEDEK: Ne, ve vsech odvetvich doslo minimalne jednou k mezirocnimu poklesu pr
 Vysledna tabulka ukazuje vsechny roky, ve kterych v danych odvetvich mzdy klesly. Posledni sloupec "salary_growth" znazornuje miru rustu v procentech.
 
 OTAZKA 2: Kolik je mozne si koupit litru mleka a kilogramu chleba za prvni a posledni srovnatelne obdobi v dostupnych datech cen a mezd?
-VYSLEDEK: V prvnim srovnatelnem obdobi (2006) je mozne koupit za prumernou mzdu 740 kg chleba a 858 l mleka. 
-Za posledni srovnatelne obdobi (2018) 893 kg chleba a 1090 l mleka.
+VYSLEDEK: V prvnim srovnatelnem obdobi (2006) je mozne koupit za prumernou mzdu 15 445 kg chleba/rok a 17 249 l mleka/rok. 
+Za posledni srovnatelne obdobi (2018) 16 101 kg chleba/rok a 19 701 l mleka/rok.
 
 OTAZKA 3: Ktera kategorie potravin zdrazuje nejpomaleji (je u ni nejnizsi percentualni mezirocni narust)? 
 VYSLEDEK: V dostupnych obdobich zdrazuje nejpomaleji: pivo vycepni, svetle, lahvove (2.29%), sunkovy salam (3.27%), jogurt bily netucny (6.22%). 
