@@ -138,21 +138,25 @@ OTAZKA 4: Existuje rok, ve kterem byl mezirocni narust cen potravin
 vyrazne vyssi nez rust mezd (vetsi nez 10 %)?*/
 
 SELECT 
-	x.*,
-	ROUND ((average_selling_price-previous_year_avg_selling_price)/average_selling_price*100, 2) AS 'price_growth'
-FROM (
+	z.*,
+	ROUND((previous_year_avg_selling_price-avg_selling_price)/avg_selling_price*100,2) AS price_growth  
+FROM ( 
 	SELECT 
-		payroll_year AS 'year', 
-		price_value AS 'average_selling_price',
-		LAG(price_value,1) OVER (
-			ORDER BY payroll_year) AS 'previous_year_avg_selling_price' 
-	FROM t_tereza_trojanova_project_sql_primary_final tttpspf
-	GROUP BY payroll_year 
-	ORDER BY payroll_year) x
-; 
-	
-	
-	
+		y.*,
+		LAG(avg_selling_price,1) OVER (
+			ORDER BY year) AS 'previous_year_avg_selling_price' 
+	FROM ( 
+		SELECT 
+				x.*
+			FROM (
+				SELECT 
+					payroll_year AS 'year', 
+					ROUND(AVG(price_value) OVER (PARTITION BY payroll_year),2) AS 'avg_selling_price'
+				FROM t_tereza_trojanova_project_sql_primary_final tttpspf
+				ORDER BY payroll_year) x) y) z
+			GROUP BY year
+			ORDER BY price_growth DESC
+;	
 
 /*OTAZKA 5: Ma vyska HDP vliv na zmeny ve mzdach a cenach potravin? Neboli, pokud HDP vzroste vyrazneji v jednom roce, 
 projevi se to na cenach potravin ci mzdach ve stejnem nebo nasledujicim roce vyraznejsim rustem?*/
